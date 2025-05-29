@@ -1,4 +1,4 @@
-FROM node:22-slim
+FROM node:22
 EXPOSE 8080
 ENV DB_HOST="localhost"
 RUN mkdir /opt/server
