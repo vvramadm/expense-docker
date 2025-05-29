@@ -4,7 +4,7 @@ RUN mkdir /opt/server
 WORKDIR /opt/server 
 COPY package.json  .
 COPY *.js  .
-RUN npm install
-CMD [ "node","index.js" ]
+RUN  npm install
+CMD  ["node","index.js"]
 #ENV DB_HOST="mysql"
  ENV DB_HOST="localhost"
