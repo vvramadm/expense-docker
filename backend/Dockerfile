@@ -1,4 +1,4 @@
-FROM node:alpine3.21
+FROM node:24.1.0-bullseye-slim
 EXPOSE 8080
 ENV DB_HOST="localhost"
 RUN mkdir /opt/server
