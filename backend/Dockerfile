@@ -8,7 +8,8 @@ RUN npm install
 
 FROM node:20.18.3-alpine3.21
 
-RUN apt-get update && apt-get install -y mysql-client && rm -rf /var/lib/apt \
+RUN apk update && \
+    apk add mysql-client \
     addgroup -S expense && adduser -S expense -G expense && \
     mkdir /opt/backend && \
     chown -R expense:expense /opt/backend 
