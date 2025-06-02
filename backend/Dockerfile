@@ -8,10 +8,10 @@ RUN npm install
 
 FROM node:20.18.3-alpine3.21
 
-RUN addgroup -S expense && adduser -S expense -G expense && \
+RUN dnf install mysql -y \
+    addgroup -S expense && adduser -S expense -G expense && \
     mkdir /opt/backend && \
-    chown -R expense:expense /opt/backend \
-    dnf install mysql -y
+    chown -R expense:expense /opt/backend 
 ENV DB_HOST="mysql"
 WORKDIR /opt/backend
 USER expense
