@@ -1,13 +1,15 @@
 version: '3'
 networks:
     expense:
-
+volumes:
+   mysql: #docker volume will create mysql
+   
 services:
    mysql:
     image: vvram143/mysql:v1
     container_name: mysql
     volumes:
-        - mysql_data: /var/lib/mysql/data
+        - mysql: /var/lib/mysql/
    backend:
     image: vvram143/backend:v1
     container_name: backend
@@ -22,8 +24,6 @@ services:
     depends_on:
       - backend
 
-volumes:
-   mysql: #docker volume will create mysql
-   external: true  
+
 
  
