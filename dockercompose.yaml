@@ -1,0 +1,27 @@
+version: '3'
+networks:
+    expense:
+volumes:
+    mysql: #docker volume will create mysql
+services:
+   mysql:
+    name: mysql
+    images: vvram143/mysql:v1 
+    volumes:
+        - mysql: /var/lib/mysql
+   backend:
+    image: vvram143/backend:v1 
+    container_name: backend
+    command: sh -c "sleep 5 && node /opt/server/index.js"
+    depends_on:
+     - mysql
+   frontend:
+    image: vvram143/frontend:v1
+    container_name: frontend
+    ports:
+      - 80:80
+    depends_on:
+      - backend
+ 
+
+ 
